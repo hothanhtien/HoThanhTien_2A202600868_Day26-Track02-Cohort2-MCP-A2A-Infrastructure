@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "adk-web-orchestrator",
+      "runtimeExecutable": "C:\\Users\\hotha\\anaconda3\\envs\\pii-env\\Scripts\\adk.exe",
+      "runtimeArgs": ["web", "agents/orchestrator", "--host", "localhost", "--port", "8000"],
+      "port": 8000
+    }
+  ]
+}

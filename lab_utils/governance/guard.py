@@ -92,6 +92,20 @@ class GovernanceGuard:
                 self._log(decision, "mcp_tool_call", query, trace_id)
                 return decision
 
+            blocked_keywords = tool_policy.get("blocked_keywords", [])
+            query_lower = query.lower()
+            for keyword in blocked_keywords:
+                if keyword.lower() in query_lower:
+                    decision = GovernanceDecision(
+                        verdict=GovernanceVerdict.DENY,
+                        reason=f"Truy vấn chứa từ khóa bị chặn: '{keyword}'",
+                        actor_id=actor_id,
+                        connection_type=ConnectionType.MCP,
+                        resource=f"mcp:research-tools/{tool_name}",
+                    )
+                    self._log(decision, "mcp_tool_call", query, trace_id)
+                    return decision
+
         if tool_name == "sql_query":
             sql = str(arguments.get("sql", ""))
             sql_decision = self._validate_sql(actor_id, sql, tool_policy)
