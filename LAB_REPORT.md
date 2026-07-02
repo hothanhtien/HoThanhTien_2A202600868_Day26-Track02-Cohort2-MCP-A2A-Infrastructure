@@ -1,7 +1,6 @@
 # Báo cáo Lab #26 — Hạ Tầng MCP/A2A & Agentic Routing
 
 **Sinh viên:** Hồ Thành Tiến (2A202600868)
-**Khóa học:** AICB-P2T2 · Tuần 6 · Chương 6
 **Framework:** Google Agent Development Kit (ADK) 2.3.0
 **Ngày thực hiện:** 02/07/2026
 
